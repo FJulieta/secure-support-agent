@@ -1,11 +1,27 @@
+
 from agent import agent
 
+question = (
+    "¿Cuál es el procedimiento para recuperar una base de datos "
+    "PostgreSQL eliminada accidentalmente?"
+)
+
 result = agent.invoke({
-    "question": "¿Qué hago si falla la conexión VPN?",
-    "documents": []
+    "question": question,
+    "documents": [],
+    "answer": "",
+    "sources": [],
+    "escalate": False,
 })
 
-for document in result["documents"]:
-    print("Fuente:", document["source"])
-    print("Similitud:", round(document["score"], 3))
-    print("Contenido:", document["content"])
+print("\nPREGUNTA:")
+print(question)
+
+print("\nRESPUESTA:")
+print(result["answer"])
+
+print("\nFUENTES:")
+print(result["sources"])
+
+print("\nESCALAR:")
+print(result["escalate"])
